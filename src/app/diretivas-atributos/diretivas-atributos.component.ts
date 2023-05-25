@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./diretivas-atributos.component.scss']
 })
 export class DiretivasAtributosComponent implements OnInit {
+[x: string]: any;
   
   public valor:boolean = false;
-  public heigthPX :string = "20px";
-  public backgroundColor :string = "red";
+  public heigthPX:string = "20px";
+  public backgroundColor:string = "red";
+  public nome:string = "";
+  public list:Array<{nome:string}>=[];
+  public date:Date = new Date();
+
 
   constructor(){}
 
@@ -30,5 +35,10 @@ export class DiretivasAtributosComponent implements OnInit {
       }
 
     },2000);
+  }
+
+  public adicionarNaLista(){
+    this.list.push({nome:this.nome});
+    this.nome="";
   }
 }
